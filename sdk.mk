@@ -29,12 +29,12 @@ kind-import: | kind-import-sdk
 
 docker-build-sdk:
 	@echo ".: ⚙️ Build '$(name)'."
-	docker build -t $(IMG_NS)/$(name)-nodejs:$(IMG_TAG) .
+	docker build -t $(IMG_NS)/$(name)-$(lang):$(IMG_TAG) .
 
 docker-export-sdk:
 	@echo ".: ⚙️ Build '$(name)'."
-	docker save $(IMG_NS)/$(name)-nodejs:$(IMG_TAG) -o $(name).tar
+	docker save $(IMG_NS)/$(name)-$(lang):$(IMG_TAG) -o $(name)-$(lang).tar
 
 kind-import-sdk:
 	@echo ".: 💾 Importing the image archive '$(name).tar' to local kind cluster."
-	kind load image-archive ./$(name).tar
+	kind load image-archive ./$(name)-$(lang).tar

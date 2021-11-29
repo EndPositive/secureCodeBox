@@ -1,4 +1,4 @@
 sdk = parser-sdk
 include_guard = set
-lang = nodejs
+lang = go
 include ../../sdk.mk
